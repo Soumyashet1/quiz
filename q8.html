@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kids Quiz</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width:320px; float:right;  }
+  #sortable li { margin: 3px 3px 3px 0; padding:10px; float:left; width:60px; height:70px; font-size:2.5em; text-align: center; }
+  #droppable ,#droppable2 { width:600px; height:150px; padding: 0.5em; float: left; margin:10px; }
+  </style> 
+  </head>
+  <body class="container">
+	<div class="row">
+        <div class="col-sm-8" style="border:2px solid red;margin-top:100px;">
+		<h4>Q8)What country has the second largest population in the world?</h4>
+			<div id="droppable" class="ui-widget-header">
+				 <p>Drop here</p>
+			</div>			
+            <p id="demo"></p>
+			<script>
+			var f="";
+			var ans="INDIA";
+			function myfun(f,ans) {
+				if(f == ans){
+			alert("CORRECT");
+			}
+				else
+				{
+					alert("WRONG");
+				}
+			}
+			</script>
+          <button type="button" onclick="myfun(f,ans)">Click Me!</button>
+        </div>
+		
+		 <div class="col-sm-4">
+				<ul id="sortable">
+				  <li name="A"  class="ui-state-default">A</li>
+				  <li name="B"  class="ui-state-default">B</li>
+				  <li name="C"  class="ui-state-default">C</li>
+				  <li name="D"  class="ui-state-default">D</li>
+				  <li name="E"  class="ui-state-default">E</li>
+				  <li name="F"  class="ui-state-default">F</li>
+				  <li name="G"  class="ui-state-default">G</li>
+				  <li name="H"  class="ui-state-default">H</li>
+				  <li name="I"  class="ui-state-default">I</li>
+				  <li name="J"  class="ui-state-default">J</li>
+				  <li name="K"  class="ui-state-default">K</li>
+				  <li name="L"  class="ui-state-default">L</li>
+				  <li name="M"  class="ui-state-default">M</li>
+				  <li name="N"  class="ui-state-default">N</li>
+				  <li name="O"  class="ui-state-default">O</li>
+				  <li name="P"  class="ui-state-default">P</li>
+				  <li name="Q"  class="ui-state-default">Q</li>
+				  <li name="R"  class="ui-state-default">R</li>
+				  <li name="S"  class="ui-state-default">S</li>
+				  <li name="T"  class="ui-state-default">T</li>
+				  <li name="U"  class="ui-state-default">U</li>
+				  <li name="V"  class="ui-state-default">V</li>
+				  <li name="W"  class="ui-state-default">W</li>
+				  <li name="X"  class="ui-state-default">X</li>
+				  <li name="Y"  class="ui-state-default">Y</li>
+				  <li name="Z"  class="ui-state-default">Z</li>
+				</ul>
+         </div>
+</div>
+ <script>  
+  $( function() {   
+     $( "#sortable li" ).draggable({
+		 revert: "invalid",
+		 connectToSortable: "#sortable li",helper:"clone"}); 
+    $( "#droppable" ).droppable({
+		revert:"true",
+        classes: {
+        "ui-droppable-active": "ui-state-active",
+        "ui-droppable-hover": "ui-state-hover",
+         },
+         drop: function( event, ui ) {      
+          var did = ui.draggable.attr("name");		 
+		  f=f.concat(did);
+			 document.getElementById("droppable").innerHTML =f;
+	      }
+    });			
+  } );	
+  </script>
+</body>
+</html>
